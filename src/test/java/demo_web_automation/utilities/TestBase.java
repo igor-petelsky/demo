@@ -8,7 +8,7 @@ import org.testng.annotations.Parameters;
 
 import java.util.concurrent.TimeUnit;
 
-import static demo_web_automation.utilities.data.Strings.mac_os_chrome_driver_path;
+import static demo_web_automation.utilities.data.Strings.*;
 
 public class TestBase {
 
@@ -20,13 +20,12 @@ public class TestBase {
 
     @Parameters("startPage")
     @BeforeClass
-    public void setup(String startPage) throws InterruptedException {
+    public void setup(String startPage) {
 
         System.setProperty("webdriver.chrome.driver", mac_os_chrome_driver_path);
         driver = new ChromeDriver();
         driver.get(startPage);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        Thread.sleep(2000);
     }
 
     @AfterClass
