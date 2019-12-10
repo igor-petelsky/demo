@@ -2,8 +2,6 @@ package demo_web_automation.utilities;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -22,16 +20,13 @@ public class TestBase {
 
     @Parameters("startPage")
     @BeforeClass
-    public void setup(String startPage) {
+    public void setup(String startPage) throws InterruptedException {
 
         System.setProperty("webdriver.chrome.driver", mac_os_chrome_driver_path);
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("disable-infobars");
-        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
         driver.get(startPage);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        Thread.sleep(2000);
     }
 
     @AfterClass
