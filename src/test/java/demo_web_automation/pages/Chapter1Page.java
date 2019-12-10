@@ -20,4 +20,3 @@ public class Chapter1Page extends DriverWait {
         waitForElementDisplayed(homePageLink).click();
     }
 }
-
