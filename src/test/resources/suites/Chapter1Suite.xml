@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Demo suite">
+
+    <test name="Chapter 1 test">
+        <classes>
+            <class name="demo_web_automation.tests.Chapter1Test"/>
+            <parameter name="startPage" value="http://book.theautomatedtester.co.uk/"/>
+        </classes>
+    </test>
+</suite>
